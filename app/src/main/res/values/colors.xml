@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6A5ACD</color>
+    <color name="colorPrimaryDark">#9370DB</color>
+    <color name="colorAccent">#8451D6</color>
+    <color name="pink">#AF4DA5</color>
+
+    <color name="pink_for_text">#ff79d7</color>
+
+    <color name="Orange">#FEB386</color>
+    <color name="OrangeSv">#edd4a1</color>
+    <color name="OrangeObv">#F7DDC6</color>
+    <color name="Blue">#007bff</color>
+    <color name="blue">#007bff</color>
+    <color name="Irek">#FFF8E7</color>
+    <color name="White">#FFFFFF</color>
+    <color name="OrangeForText">#411711</color>
+    <color name="red">#B15124</color>
+    <color name="Yellow">#ffd500</color>
+    <color name="Grey">#7b7b7b</color>
+    <color name="GreyForBackOfEd">#c3c3c3</color>
+    <color name="GreyForStrokeOfEd">#767676</color>
+    <color name="Orange_In_Addition">#BC7D26</color>
+    <color name="Text_On_Second_header">#212529</color>
+    <color name="Korich">#370B01</color>
+    <color name="DarkYellow">#FFB64D</color>
+</resources>
