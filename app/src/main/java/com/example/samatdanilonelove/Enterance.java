@@ -83,7 +83,7 @@ public class Enterance extends Activity {
         reg = (Button) findViewById(R.id.reg);
         root = findViewById(R.id.root_element);
         mSettings = this.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        Log.d("1", "NAME: "+mSettings.getString(APP_PREFERENCES_NAME, "")+ "   REGORNO: " + mSettings.getString(APP_PREFERENCES_REG, "2")+"   EMAIL: "+mSettings.getString(APP_PREFERENCES_EMAIL, "")+"   FORM: "+mSettings.getString(APP_PREFERENCES_FORM, "")+"   PASSWORD: "+mSettings.getString(APP_PREFERENCES_PASSWORD, "")+"   HOWMANYBOOKS: "+mSettings.getString(APP_PREFERENCES_HOWMANY, "") );
+        Log.d("1", "NAME: "+mSettings.getString(APP_PREFERENCES_NAME, "Читатель")+ "   REGORNO: " + mSettings.getString(APP_PREFERENCES_REG, "2")+"   EMAIL: "+mSettings.getString(APP_PREFERENCES_EMAIL, "")+"   FORM: "+mSettings.getString(APP_PREFERENCES_FORM, "")+"   PASSWORD: "+mSettings.getString(APP_PREFERENCES_PASSWORD, "")+"   HOWMANYBOOKS: "+mSettings.getString(APP_PREFERENCES_HOWMANY, "") );
             if(mSettings.getString(APP_PREFERENCES_REG, "0").equals("1")){
                 reg.setVisibility(View.INVISIBLE);
                 new Timer().schedule(new TimerTask() {
@@ -102,7 +102,7 @@ public class Enterance extends Activity {
 
 
 
-        tv.setText("Добрый вечер, " + mSettings.getString(APP_PREFERENCES_NAME, "") + "!");
+        tv.setText("Добрый вечер, " + mSettings.getString(APP_PREFERENCES_NAME, "Читатель") + "!");
         tv.startAnimation(anim);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override

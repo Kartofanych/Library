@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintHeight_percent="0.3"
         >
 
         <RelativeLayout
@@ -25,17 +25,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintWidth_percent="1"
-            app:layout_constraintHeight_percent="0.85">
+            app:layout_constraintHeight_percent="0.9">
 
             <TextView
                 android:id="@+id/set"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="30dp"
                 android:text="Settings"
                 android:gravity="center"
-                android:fontFamily="@font/montserrat_alternates_semi_bold"
+                android:fontFamily="@font/bold"
                 android:textSize="21sp"
                 android:textColor="@color/White"/>
             <ImageView
@@ -54,11 +54,11 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/design_for_entrance"
             android:elevation="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintWidth_percent="1"
-            app:layout_constraintHeight_percent="0.1">
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <View
                 android:id="@+id/view1"
@@ -85,7 +85,7 @@
                     android:id="@+id/prof"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/bold"
                     android:gravity="center"
                     android:text="Profile"
                     android:textSize="18sp"/>
@@ -115,7 +115,7 @@
                     android:id="@+id/about"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/bold"
                     android:gravity="center"
                     android:text="About us"
                     android:textSize="18sp"/>
@@ -132,15 +132,6 @@
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent="1" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.viewpager.widget.ViewPager
@@ -148,10 +139,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.596"
+        app:layout_constraintHeight_percent="0.73"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/verh"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_percent="1"
         />
 

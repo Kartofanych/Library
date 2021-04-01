@@ -135,7 +135,7 @@ public class PageFragmentForSettings extends Fragment {
 
         }
         else{
-            view = inflater.inflate(R.layout.activity_main, null);
+            view = inflater.inflate(R.layout.about_us, null);
 
         }
         return view;

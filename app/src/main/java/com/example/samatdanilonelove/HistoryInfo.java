@@ -35,6 +35,17 @@ public class HistoryInfo extends Activity {
         Time.setText(time);
 
 
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

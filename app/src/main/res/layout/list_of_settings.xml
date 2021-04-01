@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         android:text="Данные профиля"
         android:layout_centerVertical="true"
-        android:fontFamily="@font/montserrat_alternates_semi_bold"
+        android:fontFamily="@font/semibold"
         android:textColor="#000000"
         android:textSize="17sp"
         android:gravity="center_vertical"
