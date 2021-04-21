@@ -24,7 +24,7 @@
         <activity android:name=".Set1" android:theme="@style/NoBar"/>
         <activity android:name=".Set2" android:theme="@style/NoBar"/>
         <activity android:name=".Registration" android:theme="@style/NoBar"/>
-        <activity android:name=".HistoryInfo" android:theme="@style/NoBar"/>
+        <activity android:name=".Kniga_about" android:theme="@style/NoBar"/>
     </application>
 
 </manifest>

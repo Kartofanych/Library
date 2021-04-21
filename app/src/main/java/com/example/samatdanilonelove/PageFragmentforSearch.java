@@ -47,7 +47,7 @@ public class PageFragmentforSearch extends Fragment {
         if(pageNumber == 0) {
             view = inflater.inflate(R.layout.fragment_po_knigam, null);
 
-            search = view.findViewById(R.id.search_aut);
+            search = view.findViewById(R.id.search__po_kn);
 
         }
         if(pageNumber == 1) {

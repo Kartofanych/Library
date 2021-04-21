@@ -2,37 +2,60 @@ package com.example.samatdanilonelove;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class HistoryInfo extends Activity {
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
-    private String name, autor, time;
-    private TextView Name, Autor, Time;
+import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class Kniga_about extends Activity {
+
+    private String name, autor, img_url, about, genre;
+    private TextView Name, Autor, About;
     private ImageView zeroTwo;
+    private ImageButton back_to_search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.history_on_click);
+        setContentView(R.layout.kniga_about);
         Bundle extras = getIntent().getExtras();
-
         if (extras != null) {
             name = extras.getString("name");
             autor = extras.getString("autor");
-            time = extras.getString("time");
+            about = extras.getString("about");
+            img_url = extras.getString("img");
+            genre = extras.getString("genre");
             // and get whatever type user account id is
         }
+
+
         zeroTwo = findViewById(R.id.kitap_image);
         Name = findViewById(R.id.name);
         Autor = findViewById(R.id.autor);
-        Time = findViewById(R.id.time);
+        About = findViewById(R.id.about);
+        back_to_search = findViewById(R.id.back_to_search);
 
-        zeroTwo.setVisibility(View.VISIBLE);
+        back_to_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        try {
+            Glide.with(this).load(img_url).into(zeroTwo);
+        } catch (Exception e) {
+
+        }
+
         Name.setText(name);
         Autor.setText(autor);
-        Time.setText(time);
+        About.setText(about);
 
 
 
@@ -45,7 +68,11 @@ public class HistoryInfo extends Activity {
 
 
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     @Override

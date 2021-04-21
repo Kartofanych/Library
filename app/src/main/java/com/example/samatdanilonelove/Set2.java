@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.SyncStateContract;
@@ -13,7 +11,6 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,18 +26,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import io.opencensus.internal.Utils;
 
 public class Set2 extends Activity {
     private FirebaseListAdapter<History> adapter;
@@ -184,7 +169,7 @@ public class Set2 extends Activity {
                     TextView time = (TextView) view.findViewById(R.id.time);
                     ImageView img = view.findViewById(R.id.kitap_image);
 
-                    Intent intent = new Intent(Set2.this, HistoryInfo.class);
+                    Intent intent = new Intent(Set2.this, Kniga_about.class);
                     intent.putExtra("name", name.getText().toString());
                     intent.putExtra("autor", autor.getText().toString());
                     intent.putExtra("time", time.getText().toString());

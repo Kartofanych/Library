@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/White">
+    android:background="@android:color/transparent">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
         <LinearLayout
-            android:id="@+id/search_kn"
+            android:id="@+id/search__po_kn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
