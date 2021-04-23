@@ -3,7 +3,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:background="#a750ff">
+    android:orientation="vertical" android:background="#38005e">
 
+    <TextView
+        android:id="@+id/pusto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пока что пусто("
+        android:fontFamily="@font/bold"
+        android:textSize="19sp"
+        android:textColor="@color/White"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="2dp"
+        android:background="@drawable/tool_corners"
+
+        >
+        <RelativeLayout
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fragment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="Избранное"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/White"
+                android:textSize="24sp"
+                android:paddingHorizontal="10dp"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/head">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/all_favourite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+    </ScrollView>
 
 </RelativeLayout>

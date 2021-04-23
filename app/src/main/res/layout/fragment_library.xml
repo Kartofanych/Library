@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/try_again">
+    android:background="#38005e">
     <RelativeLayout
         android:id="@+id/rel_anim_first"
         android:visibility="gone"
@@ -22,7 +22,13 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/downloading"
             />
-
+        <RelativeLayout
+            android:id="@+id/between"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#38005e"
+            android:visibility="gone"
+            />
 
     </RelativeLayout>
 
@@ -33,6 +39,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
+        android:elevation="2dp"
         android:background="@drawable/tool_corners"
         >
         <RelativeLayout
@@ -193,7 +200,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/menu"
-            android:elevation="1dp"
+            android:elevation="2dp"
             android:background="@android:color/transparent"
             >
             <com.airbnb.lottie.LottieAnimationView

@@ -109,7 +109,7 @@
         android:background="@drawable/white_back"
         >
             <view class="androidx.appcompat.app.AlertController$RecycleListView"
-                android:paddingVertical="10dp"
+                android:paddingTop="23dp"
                 android:id="@+id/list_history"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -127,15 +127,6 @@
             android:visibility="gone"
             android:layout_centerInParent="true"
             />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/plus"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            />
-
-
     </RelativeLayout>
 
 

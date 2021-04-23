@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.SyncStateContract;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityOptionsCompat;
 
+import com.bumptech.glide.Glide;
 import com.example.samatdanilonelove.models.History;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -27,17 +28,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Set2 extends Activity {
     private FirebaseListAdapter<History> adapter;
 
     private FirebaseAuth auth;
     private FirebaseDatabase db;
     private DatabaseReference users;
-    private String name;
-    private Integer rank;
     private ListView history;
     private int kol = 0;
-    private FloatingActionButton plus;
     private TextView pusto;
 
     public static final String APP_PREFERENCES = "mysettings";
@@ -76,42 +78,8 @@ public class Set2 extends Activity {
         db = FirebaseDatabase.getInstance();
         users = db.getReference("Users");
 
-        plus = findViewById(R.id.plus);
-        plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences.Editor editor = mSettings.edit();
-                editor.putString(APP_PREFERENCES_HOWMANY, "1");
-                editor.apply();
-                FirebaseDatabase.getInstance().getReference("Users").child(auth.getCurrentUser().getUid()).child("History").push().setValue(new History("name","autor"));
-            }
-        });
-
-                        displayChatMessages();
+                        GetHistory();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus){
@@ -133,54 +101,79 @@ public class Set2 extends Activity {
         super.onStart();
         adapter.startListening();
     }
-    public void displayChatMessages(){
-        history = (ListView)findViewById(R.id.list_history);
+    private ArrayList<String> ab, pop, image;
+    int i;
+    public void GetHistory() {
+        history = (ListView) findViewById(R.id.list_history);
 
         kol = 0;
-
-            Query query = FirebaseDatabase.getInstance().getReference("Users").child(auth.getCurrentUser().getUid()).child("History");
+        ab = new ArrayList<String>();
+        pop = new ArrayList<String>();
+        image = new ArrayList<String>();
+        i = 0;
+        Query query = FirebaseDatabase.getInstance().getReference("Users").child(auth.getCurrentUser().getUid()).child("History");
 //The error said the constructor expected FirebaseListOptions - here you create them:
-            FirebaseListOptions<History> options = new FirebaseListOptions.Builder<History>()
-                    .setQuery(query, History.class)
-                    .setLayout(R.layout.history_object)
-                    .build();
-            adapter = new FirebaseListAdapter<History>(options) {
-                @Override
-                protected void populateView(@NonNull View v, @NonNull History model, int position) {
+        FirebaseListOptions<History> options = new FirebaseListOptions.Builder<History>()
+                .setQuery(query, History.class)
+                .setLayout(R.layout.default_kitap_in_search)
+                .build();
+        adapter = new FirebaseListAdapter<History>(options) {
+            @Override
+            protected void populateView(@NonNull View v, @NonNull final History model, int position) {
 
-                    TextView autor = (TextView) v.findViewById(R.id.autor);
-                    TextView name = (TextView) v.findViewById(R.id.name);
-                    TextView time = (TextView) v.findViewById(R.id.time);
-                    // Get references to the views of message.xml
-                    autor.setText(model.getMessageText());
-                    name.setText(model.getMessageUser());
-                    // Format the date before showing it
-                    time.setText(DateFormat.format("HH:mm",
-                            model.getMessageTime()));
-                    kol++;
-                }
-            };
-            history.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                    TextView autor = (TextView) view.findViewById(R.id.autor);
-                    TextView name = (TextView) view.findViewById(R.id.name);
-                    TextView time = (TextView) view.findViewById(R.id.time);
-                    ImageView img = view.findViewById(R.id.kitap_image);
-
-                    Intent intent = new Intent(Set2.this, Kniga_about.class);
-                    intent.putExtra("name", name.getText().toString());
-                    intent.putExtra("autor", autor.getText().toString());
-                    intent.putExtra("time", time.getText().toString());
-                    ActivityOptionsCompat options = ActivityOptionsCompat.
-                            makeSceneTransitionAnimation(Set2.this, img, "trans1");
-                    startActivity(intent, options.toBundle());
+                TextView autor = (TextView) v.findViewById(R.id.autor);
+                TextView name = (TextView) v.findViewById(R.id.name);
+                TextView genre = (TextView) v.findViewById(R.id.genre);
+                ImageView img = (ImageView) v.findViewById(R.id.KitapImage);
+                try {
+                    Glide
+                            .with(Set2.this)
+                            .load(model.getImg())
+                            .into(img);
+                } catch (Exception e) {
 
                 }
-            });
-            history.smoothScrollToPosition(kol);
-            history.setAdapter(adapter);
+                Log.d("1", String.valueOf(position));
+                // Get references to the views of message.xml
+                autor.setText(model.getAutor());
+                name.setText(model.getName());
+                genre.setText(model.getGenre());
+                ab.add(i, model.getAbout());
+                pop.add(i, model.getPop().toString());
+                image.add(i, model.getImg());
+                i++;
+                kol++;
+            }
+
+        };
+
+        history.setAdapter(adapter);
+        history.smoothScrollToPosition(kol);
+        SetHistoryChecker();
+
+    }
+
+    private void SetHistoryChecker(){
+        history.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView autor = (TextView) view.findViewById(R.id.autor);
+                TextView name = (TextView) view.findViewById(R.id.name);
+                TextView genre = (TextView) view.findViewById(R.id.genre);
+
+                Intent intent = new Intent(Set2.this, Kniga_about.class);
+                intent.putExtra("name", name.getText().toString());
+                intent.putExtra("autor", autor.getText().toString());
+                intent.putExtra("genre", genre.getText().toString());
+                intent.putExtra("about", ab.get(history.getCount()-position-1));
+                intent.putExtra("img", image.get(history.getCount()-position-1));
+                intent.putExtra("pop", pop.get(history.getCount()-position-1));
+                startActivityForResult(intent, 1);
+                overridePendingTransition(R.anim.left_anim, R.anim.alpha_to_zero);
+
+            }
+        });
     }
     
 }

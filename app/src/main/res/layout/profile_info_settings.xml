@@ -151,7 +151,7 @@
                     android:maxLines="1"
                     android:inputType="text"
                     android:hint="Имя"
-                    android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                    android:drawableStart="@drawable/account_grey"
                     android:paddingHorizontal="10dp"
                     android:drawablePadding="10dp"
                     android:elevation="5dp"

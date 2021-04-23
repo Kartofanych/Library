@@ -3,41 +3,69 @@ package com.example.samatdanilonelove.models;
 import java.util.Date;
 
 public class History {
-    private String messageText;
-    private String messageUser;
-    private long messageTime;
+    String name, autor, about, img, genre;
+    Long pop;
 
 
-    public History(String messageText, String messageUser) {
-        this.messageText = messageText;
-        this.messageUser = messageUser;
-        // Initialize to current time
-        messageTime = new Date().getTime();
+    public History(String Name, String Autor, String About, Long Pop, String Img, String Genre){
+
+        this.autor = Autor;
+        this.name = Name;
+        this.about = About;
+        this.pop = Pop;
+        this.img = Img;
+        this.genre = Genre;
+
     }
-
     public History(){
 
     }
 
-    public String getMessageText() {
-        return messageText;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setMessageText(String messageText) {
-        this.messageText = messageText;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public String getMessageUser() { return messageUser; }
-
-    public void setMessageUser(String messageUser) {
-        this.messageUser = messageUser;
+    public String getName() {
+        return name;
     }
 
-    public long getMessageTime() {
-        return messageTime;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setMessageTime(long messageTime) {
-        this.messageTime = messageTime;
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public Long getPop() {
+        return pop;
+    }
+
+    public void setPop(Long pop) {
+        this.pop = pop;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

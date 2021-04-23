@@ -48,6 +48,7 @@ public class Registration extends Activity {
     public static final String APP_PREFERENCES_FORM = "form";
     public static final String APP_PREFERENCES_PASSWORD = "pass";
     public static final String APP_PREFERENCES_HOWMANY = "0";
+    public static final String APP_PREFERENCES_FAVOURITES = "123";
     public static final String APP_PREFS_NAME = SyncStateContract.Constants.class.getPackage().getName();
     public static final String APP_CACHE_PATH =
             Environment.getExternalStorageDirectory().getAbsolutePath() +

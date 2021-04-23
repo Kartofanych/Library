@@ -44,6 +44,7 @@ public class PageFragmentForSettings extends Fragment {
     public static final String APP_PREFERENCES_FORM = "form";
     public static final String APP_PREFERENCES_PASSWORD = "pass";
     public static final String APP_PREFERENCES_HOWMANY = "0";
+    public static final String APP_PREFERENCES_FAVOURITES = "123";
     public static final String APP_PREFS_NAME = SyncStateContract.Constants.class.getPackage().getName();
     public static final String APP_CACHE_PATH =
             Environment.getExternalStorageDirectory().getAbsolutePath() +
@@ -179,6 +180,7 @@ public class PageFragmentForSettings extends Fragment {
                 editor.putString(APP_PREFERENCES_FORM, "form");
                 editor.putString(APP_PREFERENCES_HOWMANY, "0");
                 editor.putString(APP_PREFERENCES_PASSWORD, "pass");
+                editor.putString(APP_PREFERENCES_FAVOURITES,"123");
                 editor.apply();
                 startActivity(new Intent(getContext(), Enterance.class));
             }
